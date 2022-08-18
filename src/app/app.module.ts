@@ -10,7 +10,9 @@ import { HomePageComponent } from './page/home-page/home-page.component';
 import { ComparePageComponent } from './page/compare-page/compare-page.component';
 import { ProductDetailPageComponent } from './page/product-detail-page/product-detail-page.component';
 import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
-
+import { ContentComponent } from './content/content.component';
+import { RouterModule } from '@angular/router';
+import { route } from './route';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,11 +21,13 @@ import { PageNotFoundComponent } from './page/page-not-found/page-not-found.comp
     HomePageComponent,
     ComparePageComponent,
     ProductDetailPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ContentComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(route, { useHash: false })
   ],
   providers: [],
   bootstrap: [AppComponent,NavbarComponent,FooterComponent]
