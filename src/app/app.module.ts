@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { PageNotFoundComponent } from './page/page-not-found/page-not-found.comp
 import { ContentComponent } from './content/content.component';
 import { RouterModule } from '@angular/router';
 import { route } from './route';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +25,12 @@ import { route } from './route';
     ProductDetailPageComponent,
     PageNotFoundComponent,
     ContentComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot(route, { useHash: false })
   ],
   providers: [],

@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="card mb-4">
-                    <div class="card-body">      
+                    <div class="card-body">
                         Age 0 - 70 years.
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="y1">
@@ -27,21 +27,21 @@
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="y4">
                             <label class="custom-control-label" for="y4">51-70</label>
-                        </div> 
+                        </div>
                     </div>
-                </div>     
+                </div>
 
-            
-
-
-                    <div class="card">
+                <div class="card">
                     <div class="card-body">
                         Type of disease.
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d1">
-                            <label class="custom-control-label" for="d1">Cancer</label>
+
+                        <div *ngFor="let ld of _listOfDisease">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="{{ld.id}}" (change)="searchFilter()" [(ngModel)]="ld.isSelected">
+                                <label class="custom-control-label" for="{{ld.id}}">{{ld.name}}</label>
+                            </div>
                         </div>
-                        <div class="custom-control custom-checkbox">
+                        <!-- <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="d2">
                             <label class="custom-control-label" for="d2">Cardiovascular</label>
                         </div>
@@ -52,109 +52,58 @@
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="d4">
                             <label class="custom-control-label" for="d4">Diabetes mellitus</label>
-                        </div> 
+                        </div>
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="d5">
                             <label class="custom-control-label" for="d5">Other</label>
-                        </div> 
+                        </div> -->
                     </div>
-                    </div>
+                </div>
 
-            </div>
             </div>
         </div>
+    </div>
 
     <div class="col-9">
-        <form class="form-inline">
-            <input class="form-control w-100 mb-4" type="search" placeholder="Search" aria-label="Search">
-        </form>
+        <!-- START : section search bar  -->
+        <!-- <form class="form-inline"> -->
+        <input class="form-control w-100 mb-4" [(ngModel)]="searchText" type="search" placeholder="Search"
+            aria-label="Search">
+
+        <!-- </form> -->
+        <!-- END : section search bar  -->
+
+        <!-- START : section list card  -->
 
         <div class="d-flex flex-wrap justify-content-between">
-            <div class="card mb-4 card-size">
-                <img class="card-img-top card-img-size" src="https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Frst class insurance</h5>
-                    <ul class="card-text bullet">
-                            <li>คุ้มครองค่ารักษาพยาบาลด้วยโรคติดเชื้อและ
-                                อุบัติเหตุ พร้อมบริการปรึกษาหมอออนไลน์
+            <div *ngFor="let p of filteredProduct">
+                <div class="card mb-4 card-size">
+                    <img class="card-img-top card-img-size" [src]="p.insuranceMiniDetailsPic" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.insuranceMiniDetailsName}}</h5>
+                        <ul class="card-text bullet">
+                            <li>
+                                {{p.insuranceMiniDetailsFBulletin}}
                             </li>
-                            <li>รับประกันภัยทั้งคนไทยและต่างชาติ ที่อาศัยอยู่ในประเทศไทย
+                            <li>
+                                {{p.insuranceMiniDetailsSBulletin}}
                             </li>
-                            <li>1234567890123456789012345678901234567890123456789012345678901234567890</li>
-                    </ul>
-                    <h5 class="colorPrice">50,000  THB/year</h5>
-                    <div class="form-check">
-                        <input class="form-check-input big-checkbox" type="checkbox" value="" id="flexCheckDefault" />
-                        <a class="btn-moredetail" href="#">More Detail</a>
+                            <li>
+                                {{p.insuranceMiniDetailsTBulletin}}
+                            </li>
+                        </ul>
+                        <h5 class="colorPrice">{{p.insuranceMiniDetailsPrice}} THB/year</h5>
+                        <div class="form-check">
+                            <input class="form-check-input big-checkbox" type="checkbox" value=""
+                                id="{{p.insuranceMiniDetailsID}}" />
+                            <a class="btn-moredetail" [routerLink]="['/products', p.insuranceMiniDetailsID]">More
+                                Detail</a>
+                        </div>
                     </div>
                 </div>
-            </div>         
-            
-            <div class="card mb-4 card-size">
-                <img class="card-img-top card-img-size" src="https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Frst class insurance</h5>
-                    <ul class="card-text bullet">
-                            <li>คุ้มครองค่ารักษาพยาบาลด้วยโรคติดเชื้อและ
-                                อุบัติเหตุ พร้อมบริการปรึกษาหมอออนไลน์
-                            </li>
-                            <li>รับประกันภัยทั้งคนไทยและต่างชาติ ที่อาศัยอยู่ในประเทศไทย
-                            </li>
-                            <li>1234567890123456789012345678901234567890123456789012345678901234567890</li>
-                    </ul>
-                    <h5 class="colorPrice">50,000  THB/year</h5>
-                    <div class="form-check">
-                        <input class="form-check-input big-checkbox" type="checkbox" value="" id="flexCheckDefault" />
-                        <a class="btn-moredetail" href="#">More Detail</a>
-                    </div>
-                </div>
-            </div>    
-
-            <div class="card mb-4 card-size">
-                <img class="card-img-top card-img-size" src="https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Frst class insurance</h5>
-                    <ul class="card-text bullet">
-                            <li>คุ้มครองค่ารักษาพยาบาลด้วยโรคติดเชื้อและ
-                                อุบัติเหตุ พร้อมบริการปรึกษาหมอออนไลน์
-                            </li>
-                            <li>รับประกันภัยทั้งคนไทยและต่างชาติ ที่อาศัยอยู่ในประเทศไทย
-                            </li>
-                            <li>1234567890123456789012345678901234567890123456789012345678901234567890</li>
-                    </ul>
-                    <h5 class="colorPrice">50,000  THB/year</h5>
-                    <div class="form-check">
-                        <input class="form-check-input big-checkbox" type="checkbox" value="" id="flexCheckDefault" />
-                        <a class="btn-moredetail" href="#">More Detail</a>
-                    </div>
-                </div>
-            </div>    
-            
-            <div class="card mb-4 card-size">
-                <img class="card-img-top card-img-size" src="https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Frst class insurance</h5>
-                    <ul class="card-text bullet">
-                            <li>คุ้มครองค่ารักษาพยาบาลด้วยโรคติดเชื้อและ
-                                อุบัติเหตุ พร้อมบริการปรึกษาหมอออนไลน์
-                            </li>
-                            <li>รับประกันภัยทั้งคนไทยและต่างชาติ ที่อาศัยอยู่ในประเทศไทย
-                            </li>
-                            <li>1234567890123456789012345678901234567890123456789012345678901234567890</li>
-                    </ul>
-                    <h5 class="colorPrice">50,000  THB/year</h5>
-                    <div class="form-check">
-                        <input class="form-check-input big-checkbox" type="checkbox" value="" id="flexCheckDefault" />
-                        <a class="btn-moredetail" href="#">More Detail</a>
-                    </div>
-                </div>
-            </div>    
-            
+            </div>
         </div>
     </div>
 </div>
 
-<a class="btn btn-compare btn-light"  href="#">Compare <span class="badge badge-pill badge-primary" >2</span> </a>
-
-
- 
+<a class="btn btn-compare btn-light" href="#">Compare <span class="badge badge-pill badge-primary">2</span> </a>
