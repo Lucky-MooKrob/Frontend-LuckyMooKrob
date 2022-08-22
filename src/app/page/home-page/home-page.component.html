@@ -1,61 +1,68 @@
 <div class="row row-cols-xs-1">
-    <div class="col-sm-3 mb-4 col-md-4 col-lg-3">
-        <div class="card">
-            <div class="card-body">
+  <div class="col-sm-3 mb-4 col-md-4 col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="card mb-4">
+          <div class="card-body">
+            Price THB.
+            <app-multi-range-slider
+              [options]="{ floor: 1000, ceil: 50000, step: 500 }"
+              [minValue]="1000"
+              [maxValue]="50000"
+            >
+            </app-multi-range-slider>
+          </div>
+        </div>
 
-                <div class="card mb-4">
-                    <div class="card-body">
-                        Price THB.
-                        <app-multi-range-slider 
-                            [options]="{floor: 1000, ceil: 50000,step: 500}"
-                            [minValue]="1000"
-                            [maxValue]="50000"
-                        >
-                        </app-multi-range-slider>
-                    </div>
-                </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            Age.
 
-                <div class="card mb-4">
-                    <div class="card-body">      
-                        Age.
-
-                        <!-- <app-multi-range-slider 
+            <!-- <app-multi-range-slider 
                             [options]="{floor: 0, ceil: 70}"
                             [minValue]="0"
                             [maxValue]="70"
                         >
                         </app-multi-range-slider> -->
 
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y1">
-                            <label class="custom-control-label" for="y1">0-10 years</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y2">
-                            <label class="custom-control-label" for="y2">11-20 years</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y3">
-                            <label class="custom-control-label" for="y3">21-50 years</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y4">
-                            <label class="custom-control-label" for="y4">51-70</label>
-                        </div> 
-                    </div>
-                </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y1" />
+              <label class="custom-control-label" for="y1">0-10 years</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y2" />
+              <label class="custom-control-label" for="y2">11-20 years</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y3" />
+              <label class="custom-control-label" for="y3">21-50 years</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y4" />
+              <label class="custom-control-label" for="y4">51-70</label>
+            </div>
+          </div>
+        </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        Type of disease.
+        <div class="card">
+          <div class="card-body">
+            Type of disease.
 
-                        <div *ngFor="let ld of _listOfDisease">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="{{ld.id}}" (change)="searchFilter()" [(ngModel)]="ld.isSelected">
-                                <label class="custom-control-label" for="{{ld.id}}">{{ld.name}}</label>
-                            </div>
-                        </div>
-                        <!-- <div class="custom-control custom-checkbox">
+            <div *ngFor="let ld of _listOfDisease">
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="{{ ld.id }}"
+                  (change)="searchFilter()"
+                  [(ngModel)]="ld.isSelected"
+                />
+                <label class="custom-control-label" for="{{ ld.id }}">{{
+                  ld.name
+                }}</label>
+              </div>
+            </div>
+            <!-- <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="d2">
                             <label class="custom-control-label" for="d2">Cardiovascular</label>
                         </div>
@@ -71,62 +78,76 @@
                             <input type="checkbox" class="custom-control-input" id="d5">
                             <label class="custom-control-label" for="d5">Other</label>
                         </div> -->
-                    </div>
-                </div>
-
-            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="col-sm-9 col-md-8 col-lg-9">
-            <div class="row">
-                  <div class="col-sm-12">
-                    <form class="form-inline">
-                    <input class="form-control w-100 mb-4" type="search" placeholder="Search" aria-label="Search">
-                </form>
-        
-                <div class="d-flex flex-wrap justify-content-between">
-                    <!-- 1 -->
-                    <div *ngFor="let p of filteredProduct">
-                        <div class="card mb-4 card-size">
-                            <img class="card-img-top card-img-size" [src]="p.insuranceMiniDetailsPic" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{p.insuranceMiniDetailsName}}</h5>
-                                <ul class="card-text bullet">
-                                    <li>
-                                        {{p.insuranceMiniDetailsFBulletin}}
-                                    </li>
-                                    <li>
-                                        {{p.insuranceMiniDetailsSBulletin}}
-                                    </li>
-                                    <li>
-                                        {{p.insuranceMiniDetailsTBulletin}}
-                                    </li>
-                                </ul>
-                                <h5 class="colorPrice">{{p.insuranceMiniDetailsPrice}} THB/year</h5>
-                                <div class="form-check">
-                                    <input class="form-check-input big-checkbox" type="checkbox" value=""
-                                        id="ck-{{p.insuranceMiniDetailsID}}" />
-                                    <a class="btn-moredetail" [routerLink]="['/products', p.insuranceMiniDetailsID]">More
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <app-card-mini></app-card-mini> -->
-                    <!-- 2 -->
-                    <!-- <app-card-mini></app-card-mini>
+  <div class="col-sm-9 col-md-8 col-lg-9">
+    <div class="row">
+      <div class="col-sm-12">
+          <input
+            class="form-control w-100 mb-4"
+            [(ngModel)]="searchText"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        <div class="d-flex flex-wrap justify-content-between">
+          <!-- 1 -->
+          <div *ngFor="let p of filteredProduct">
+            <div class="card mb-4 card-size">
+              <img
+                class="card-img-top card-img-size"
+                [src]="p.insuranceMiniDetailsPic"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ p.insuranceMiniDetailsName }}</h5>
+                <ul class="card-text bullet">
+                  <li>
+                    {{ p.insuranceMiniDetailsFBulletin }}
+                  </li>
+                  <li>
+                    {{ p.insuranceMiniDetailsSBulletin }}
+                  </li>
+                  <li>
+                    {{ p.insuranceMiniDetailsTBulletin }}
+                  </li>
+                </ul>
+                <h5 class="colorPrice">
+                  {{ p.insuranceMiniDetailsPrice }} THB/year
+                </h5>
+                <div class="form-check">
+                  <input
+                    class="form-check-input big-checkbox"
+                    type="checkbox"
+                    value=""
+                    id="ck-{{ p.insuranceMiniDetailsID }}"
+                  />
+                  <a
+                    class="btn-moredetail"
+                    [routerLink]="['/products', p.insuranceMiniDetailsID]"
+                    >More Detail</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <app-card-mini></app-card-mini> -->
+          <!-- 2 -->
+          <!-- <app-card-mini></app-card-mini>
   
                     <app-card-mini></app-card-mini>
 
                     <app-card-mini></app-card-mini> -->
-
-                </div>
-    
-            </div>
-
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<a class="btn btn-compare btn-light" href="#">Compare <span class="badge badge-pill badge-primary">2</span> </a>
+<a class="btn btn-compare btn-light" href="#"
+  >Compare <span class="badge badge-pill badge-primary">2</span>
+</a>
