@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
@@ -36,6 +37,7 @@ import { CardCompareAddComponent } from './component/card-compare-add/card-compa
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot(route, { useHash: false }),
     NgxSliderModule,
   ],
