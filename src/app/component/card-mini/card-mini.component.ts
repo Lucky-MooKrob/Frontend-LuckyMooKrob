@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Input } from '@angular/core';
 import { InsuranceProduct } from 'src/app/model/product';
 @Component({
   selector: 'app-card-mini',
   templateUrl: './card-mini.component.html',
-  styleUrls: ['./card-mini.component.scss']
+  styleUrls: ['./card-mini.component.scss'],
 })
 export class CardMiniComponent implements OnInit {
-
-  @Input() item :InsuranceProduct = {
+  @Input() product: InsuranceProduct = {
     insuranceMiniDetailsID: 0,
     insuranceMiniDetailsName: '',
     insuranceMiniDetailsPic: '',
@@ -18,12 +17,21 @@ export class CardMiniComponent implements OnInit {
     insuranceMiniDetailsTBulletin: '',
     insuranceMiniDetailsStartAge: 0,
     insuranceMiniDetailsEndAge: 0,
-    insuranceMiniDetailsDisease: ''
+    insuranceMiniDetailsDisease: '',
   };
+  @Output() selectedProduct = new EventEmitter<{
+    product: InsuranceProduct;
+    selected: boolean;
+  }>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onChanged(event: any) {
+    this.selectedProduct.emit({
+      product: this.product,
+      selected: event.currentTarget.checked,
+    });
   }
-
 }

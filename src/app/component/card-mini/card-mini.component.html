@@ -1,29 +1,42 @@
 <div class="card mb-4 card-size">
-    <img class="card-img-top card-img-size" [src]="item.insuranceMiniDetailsPic" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{item.insuranceMiniDetailsName}}</h5>
-        <ul class="card-text bullet">
-            <li>
-                {{item.insuranceMiniDetailsFBulletin}}
-            </li>
-            <li>
-                {{item.insuranceMiniDetailsSBulletin}}
-            </li>
-            <li>
-                {{item.insuranceMiniDetailsTBulletin}}
-            </li>
-        </ul>
-        
-        <div class="card-bottom">
-            <h5 class="colorPrice">{{item.insuranceMiniDetailsPrice}} THB/year</h5>
-            <div class="form-check">
-                <input class="form-check-input big-checkbox" type="checkbox" value=""
-                    id="ck-{{item.insuranceMiniDetailsID}}" />
-                <label class="label-select-to-compare">Select to compare.</label>
-                <a class="btn-moredetail" [routerLink]="['/products', item.insuranceMiniDetailsID]">More
-                    Detail</a>
-            </div>
-        </div>
-        
+  <img
+    class="card-img-top card-img-size"
+    [src]="product.insuranceMiniDetailsPic"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ product.insuranceMiniDetailsName }}</h5>
+    <ul class="card-text bullet">
+      <li>
+        {{ product.insuranceMiniDetailsFBulletin }}
+      </li>
+      <li>
+        {{ product.insuranceMiniDetailsSBulletin }}
+      </li>
+      <li>
+        {{ product.insuranceMiniDetailsTBulletin }}
+      </li>
+    </ul>
+
+    <div class="card-bottom">
+      <h5 class="colorPrice">
+        {{ product.insuranceMiniDetailsPrice }} THB/year
+      </h5>
+      <div class="form-check">
+        <input
+          class="form-check-input big-checkbox"
+          type="checkbox"
+          value="{{ product.insuranceMiniDetailsID }}"
+          id="ck-{{ product.insuranceMiniDetailsID }}"
+          (change)="onChanged($event)"
+        />
+        <label class="label-select-to-compare">Select to compare.</label>
+        <a
+          class="btn-moredetail"
+          [routerLink]="['/products', product.insuranceMiniDetailsID]"
+          >More Detail</a
+        >
+      </div>
     </div>
+  </div>
 </div>

@@ -1,90 +1,120 @@
 <div class="row row-cols-xs-1">
-    <div class="col-sm-3 mb-4 col-md-4 col-lg-3">
+  <div class="col-sm-3 mb-4 col-md-4 col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="card mb-4">
+          <div class="card-body">
+            Price THB.
+            <app-multi-range-slider
+              [options]="{ floor: 1000, ceil: 50000, step: 500 }"
+              [minValue]="1000"
+              [maxValue]="50000"
+            >
+            </app-multi-range-slider>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            Age.
+
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y1" />
+              <label class="custom-control-label" for="y1">0-10 years</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y2" />
+              <label class="custom-control-label" for="y2">11-20 years</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y3" />
+              <label class="custom-control-label" for="y3">21-50 years</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="y4" />
+              <label class="custom-control-label" for="y4">51-70</label>
+            </div>
+          </div>
+        </div>
+
         <div class="card">
-            <div class="card-body">
+          <div class="card-body">
+            Type of disease.
 
-                <div class="card mb-4">
-                    <div class="card-body">
-                        Price THB.
-                        <app-multi-range-slider 
-                            [options]="{floor: 1000, ceil: 50000,step: 500}"
-                            [minValue]="1000"
-                            [maxValue]="50000"
-                        >
-                        </app-multi-range-slider>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-body">      
-                        Age.
-
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y1">
-                            <label class="custom-control-label" for="y1">0-10 years</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y2">
-                            <label class="custom-control-label" for="y2">11-20 years</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y3">
-                            <label class="custom-control-label" for="y3">21-50 years</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="y4">
-                            <label class="custom-control-label" for="y4">51-70</label>
-                        </div> 
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        Type of disease.
-
-                        <div *ngFor="let ld of _listOfDisease">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="{{ld.id}}" (change)="searchFilter()" [(ngModel)]="ld.isSelected">
-                                <label class="custom-control-label" for="{{ld.id}}">{{ld.name}}</label>
-                            </div>
-                        </div>
-                        <!-- <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d2">
-                            <label class="custom-control-label" for="d2">Cardiovascular</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d3">
-                            <label class="custom-control-label" for="d3">Chronic respiratory</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d4">
-                            <label class="custom-control-label" for="d4">Diabetes mellitus</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d5">
-                            <label class="custom-control-label" for="d5">Other</label>
-                        </div> -->
-                    </div>
-                </div>
-
+            <div *ngFor="let ld of _listOfDisease">
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="{{ ld.id }}"
+                  (change)="searchFilter()"
+                  [(ngModel)]="ld.isSelected"
+                />
+                <label class="custom-control-label" for="{{ ld.id }}">{{
+                  ld.name
+                }}</label>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="col-sm-9 col-md-8 col-lg-9">
-            <div class="row">
-                  <div class="col-sm-12">
-                    <form class="form-inline">
-                    <input class="form-control w-100 mb-4" type="search" placeholder="Search" aria-label="Search">
-                </form>
-        
-                <div class="d-flex flex-wrap justify-content-between">
-                    <app-card-mini *ngFor="let item of filteredProduct" [item]="item"></app-card-mini>
-                </div>
-            </div>
+  <div class="col-sm-9 col-md-8 col-lg-9">
+    <div class="row">
+      <div class="col-sm-12">
+        <form class="form-inline">
+          <input
+            class="form-control w-100 mb-4"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
 
+        <div class="d-flex flex-wrap justify-content-between">
+          <app-card-mini
+            *ngFor="let product of filteredProduct"
+            [product]="product"
+            (selectedProduct)="onCheckedProduct($event)"
+          ></app-card-mini>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<a class="btn btn-compare btn-light" href="#">Compare <span class="badge badge-pill badge-primary">2</span> </a>
+<a class="btn btn-compare btn-light" href="#"
+  >Compare
+  <span class="badge badge-pill badge-primary">{{
+    selectedProducts.length ? selectedProducts.length : ""
+  }}</span>
+</a>
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
