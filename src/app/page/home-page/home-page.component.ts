@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
 
   products: InsuranceProduct[] = [
     {
-      insuranceMiniDetailsID: "1",
+      insuranceMiniDetailsID: 1,
       insuranceMiniDetailsName: "First class  Cancer insurance 1 0-30",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 30000,
@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit {
 
     },
     {
-      insuranceMiniDetailsID: "2",
+      insuranceMiniDetailsID: 2,
       insuranceMiniDetailsName: "First class  Cancer insurance 2 31-40",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 40000,
@@ -37,7 +37,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "cancer"
     },
     {
-      insuranceMiniDetailsID: "3",
+      insuranceMiniDetailsID: 3,
       insuranceMiniDetailsName: "First class  Cancer insurance 3 41-50",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 50000,
@@ -49,7 +49,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "cancer"
     },
     {
-      insuranceMiniDetailsID: "4",
+      insuranceMiniDetailsID: 4,
       insuranceMiniDetailsName: "First class  Cancer insurance 51-70",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 60000,
@@ -61,7 +61,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "cancer"
     },
     {
-      insuranceMiniDetailsID: "5",
+      insuranceMiniDetailsID: 5,
       insuranceMiniDetailsName: "First class  Cardiovascular insurance 1 0-30",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 30000,
@@ -74,7 +74,7 @@ export class HomePageComponent implements OnInit {
 
     },
     {
-      insuranceMiniDetailsID: "6",
+      insuranceMiniDetailsID: 6,
       insuranceMiniDetailsName: "First class  Cardiovascular insurance 2 31-40",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 40000,
@@ -86,7 +86,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Cardiovascular"
     },
     {
-      insuranceMiniDetailsID: "7",
+      insuranceMiniDetailsID: 7,
       insuranceMiniDetailsName: "First class  Cardiovascular insurance 3 41-50",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 50000,
@@ -98,7 +98,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Cardiovascular"
     },
     {
-      insuranceMiniDetailsID: "8",
+      insuranceMiniDetailsID: 8,
       insuranceMiniDetailsName: "First class  Cardiovascular insurance 51-70",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 60000,
@@ -110,7 +110,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Cardiovascular"
     },
     {
-      insuranceMiniDetailsID: "9",
+      insuranceMiniDetailsID: 9,
       insuranceMiniDetailsName: "First class  Chronic respiratory insurance 1 0-30",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 30000,
@@ -123,7 +123,7 @@ export class HomePageComponent implements OnInit {
 
     },
     {
-      insuranceMiniDetailsID: "10",
+      insuranceMiniDetailsID: 10,
       insuranceMiniDetailsName: "First class  Chronic respiratory insurance 2 31-40",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 40000,
@@ -135,7 +135,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Chronic respiratory"
     },
     {
-      insuranceMiniDetailsID: "11",
+      insuranceMiniDetailsID: 11,
       insuranceMiniDetailsName: "First class  Chronic respiratory insurance 3 41-50",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 50000,
@@ -147,7 +147,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Chronic respiratory"
     },
     {
-      insuranceMiniDetailsID: "12",
+      insuranceMiniDetailsID: 12,
       insuranceMiniDetailsName: "First class  Chronic respiratory insurance 51-70",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 60000,
@@ -159,7 +159,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Chronic respiratory"
     },
     {
-      insuranceMiniDetailsID: "13",
+      insuranceMiniDetailsID: 13,
       insuranceMiniDetailsName: "First class  Diabetes mellitus insurance 1 0-30",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 30000,
@@ -172,7 +172,7 @@ export class HomePageComponent implements OnInit {
 
     },
     {
-      insuranceMiniDetailsID: "14",
+      insuranceMiniDetailsID: 14,
       insuranceMiniDetailsName: "First class  Diabetes mellitus insurance 2 31-40",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 40000,
@@ -184,7 +184,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Diabetes mellitus"
     },
     {
-      insuranceMiniDetailsID: "15",
+      insuranceMiniDetailsID: 15,
       insuranceMiniDetailsName: "First class  Diabetes mellitus insurance 3 41-50",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 50000,
@@ -196,7 +196,7 @@ export class HomePageComponent implements OnInit {
       insuranceMiniDetailsDisease: "Diabetes mellitus"
     },
     {
-      insuranceMiniDetailsID: "16",
+      insuranceMiniDetailsID: 16,
       insuranceMiniDetailsName: "First class  Diabetes mellitus insurance 51-70",
       insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
       insuranceMiniDetailsPrice: 60000,

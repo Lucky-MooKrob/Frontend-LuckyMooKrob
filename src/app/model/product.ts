@@ -1,5 +1,5 @@
 export interface InsuranceProduct{
-    insuranceMiniDetailsID: string ;
+    insuranceMiniDetailsID: number ;
     insuranceMiniDetailsName: string;
     insuranceMiniDetailsPic: string;
     insuranceMiniDetailsPrice:number;
