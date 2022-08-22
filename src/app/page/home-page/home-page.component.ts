@@ -1,5 +1,6 @@
 import { Component, OnInit, importProvidersFrom } from '@angular/core';
 import { InsuranceProduct } from 'src/app/model/product';
+import { Options } from "@angular-slider/ngx-slider";
 
 @Component({
   selector: 'app-home-page',
@@ -8,9 +9,22 @@ import { InsuranceProduct } from 'src/app/model/product';
 })
 export class HomePageComponent implements OnInit {
 
-
+ 
 
   products: InsuranceProduct[] = [
+    {
+      insuranceMiniDetailsID: 0,
+      insuranceMiniDetailsName: "15-45",
+      insuranceMiniDetailsPic: "https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG",
+      insuranceMiniDetailsPrice: 30000,
+      insuranceMiniDetailsFBulletin: "คุ้มครองค่ารักษาพยาบาลด้วยโรคติดเชื้อและอุบัติเหตุ พร้อมบริการปรึกษาหมอออนไลน์",
+      insuranceMiniDetailsSBulletin: "รับประกันภัยทั้งคนไทยและต่างชาติ ที่อาศัยอยู่ในประเทศไทย",
+      insuranceMiniDetailsTBulletin: "1234567890123456789012345678901234567890123456789012345678901234567890",
+      insuranceMiniDetailsStartAge: 15,
+      insuranceMiniDetailsEndAge: 45,
+      insuranceMiniDetailsDisease: "cancer"
+
+    },
     {
       insuranceMiniDetailsID: 1,
       insuranceMiniDetailsName: "First class  Cancer insurance 1 0-30",
@@ -217,6 +231,18 @@ export class HomePageComponent implements OnInit {
 
   filteredProduct: InsuranceProduct[] = this.products;
 
+  currentItem = this.filteredProduct;
+
+  minValue : number = 1000;
+  maxValue : number = 50000;
+  options : Options ={ floor: 1000, ceil: 50000, step: 500 }
+  
+
+
+
+
+
+
   // search Text
   private _searchText: string = '';
   get searchText(): string {
@@ -239,12 +265,24 @@ export class HomePageComponent implements OnInit {
     { id: "d5", name: "Other", isSelected: false },
   ]
 
+  _listOfAgeSelected: any[] = [];
+
+  _listOfAge = [
+    { id: "a1", name: "0-30", isSelected: false ,min:0 , max:30},
+    { id: "a2", name: "31-40", isSelected: false ,min:31 , max:40},
+    { id: "a3", name: "41-50", isSelected: false ,min:41, max:50},
+    { id: "a4", name: "51-70", isSelected: false ,min:51 , max:70},
+    
+  ]
+
 
   searchFilter(){
     
     this.filteredProduct = this.products;
     this._listOfDiseaseSelected = this._listOfDisease.filter(x => x.isSelected == true).map(x => x.name);
-
+    this._listOfAgeSelected = this._listOfAge.filter(x=>x.isSelected == true)
+    console.log(this._listOfAgeSelected);
+    
     if(this._searchText != null && this._searchText != ''){
       this.filteredProduct = this.filteredProduct.filter(p=> p.insuranceMiniDetailsName.toLowerCase().replace(/ +/g, "").includes(this._searchText.toLowerCase().replace(/ +/g, "")));
     }
@@ -259,6 +297,19 @@ export class HomePageComponent implements OnInit {
       }
       this.filteredProduct = temp;
     } 
+
+    if(this._listOfAgeSelected.length != 0){
+      let temp: InsuranceProduct[]=[];
+      for (let i = 0; i < this._listOfAgeSelected.length; i++) {
+        let data = this.filteredProduct.filter(p => (p.insuranceMiniDetailsStartAge >= this._listOfAgeSelected[i].min && p.insuranceMiniDetailsStartAge <= this._listOfAgeSelected[i].max) ||
+                                (p.insuranceMiniDetailsEndAge >= this._listOfAgeSelected[i].min && p.insuranceMiniDetailsEndAge <= this._listOfAgeSelected[i].max) || 
+                                (p.insuranceMiniDetailsStartAge <= this._listOfAgeSelected[i].min && p.insuranceMiniDetailsEndAge >= this._listOfAgeSelected[i].max));
+        if (data != undefined) {
+           temp = [...temp,...data]
+        }
+      }
+      this.filteredProduct = temp.filter((item, index) => temp.indexOf(item) === index);
+    }
   }
 
 }

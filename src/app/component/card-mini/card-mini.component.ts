@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { InsuranceProduct } from 'src/app/model/product';
 
 @Component({
   selector: 'app-card-mini',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardMiniComponent implements OnInit {
 
+  @Input() item :InsuranceProduct[]= [];
   constructor() { }
 
   ngOnInit(): void {
