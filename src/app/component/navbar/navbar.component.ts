@@ -7,7 +7,7 @@ import { Router, Event, NavigationEnd } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  route
+  route: string
 
   constructor(private router: Router) {
     this.route = "";

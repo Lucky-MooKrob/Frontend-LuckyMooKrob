@@ -1,23 +1,28 @@
+@import "/src/stylings/variables";
+
+$active-color: $base-color;
+$font-color: #414141;
+
 .topnav a {
-float: left;
-display: block;
-color: #414141;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
-border-bottom: 3px solid transparent;
+    float: left;
+    display: block;
+    color: $font-color;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
 }
 
 .topnav a:hover {
-color: #006192;
-font-weight: bold;
-border-bottom: 3px solid #006192;
+    color: $active-color;
+    font-weight: bold;
+    border-bottom: 3px solid $active-color;
 }
 
 .topnav a.active {
-color: #006192;
-border-bottom: 3px solid #006192;
+    color: $active-color;
+    border-bottom: 3px solid $active-color;
 }
 
 .noHover{

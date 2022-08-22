@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,10 @@ import { PageNotFoundComponent } from './page/page-not-found/page-not-found.comp
 import { ContentComponent } from './content/content.component';
 import { RouterModule } from '@angular/router';
 import { route } from './route';
+import { MultiRangeSliderComponent } from './component/multi-range-slider/multi-range-slider.component';
+import { CardMiniComponent } from './component/card-mini/card-mini.component';
+import { CardCompareComponent } from './component/card-compare/card-compare.component';
+import { CardCompareAddComponent } from './component/card-compare-add/card-compare-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +28,16 @@ import { route } from './route';
     ProductDetailPageComponent,
     PageNotFoundComponent,
     ContentComponent,
+    MultiRangeSliderComponent,
+    CardMiniComponent,
+    CardCompareComponent,
+    CardCompareAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(route, { useHash: false })
+    RouterModule.forRoot(route, { useHash: false }),
+    NgxSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent,NavbarComponent,FooterComponent]
