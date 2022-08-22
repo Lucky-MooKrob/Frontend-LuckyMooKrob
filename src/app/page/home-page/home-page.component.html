@@ -6,10 +6,9 @@
           <div class="card-body">
             Price THB.
             <app-multi-range-slider
-              [options]="options"
+              [options]="{ floor: 1000, ceil: 50000, step: 500 }"
               [minValue]="1000"
               [maxValue]="50000"
-              (change)="searchFilter()"
             >
             </app-multi-range-slider>
           </div>
@@ -37,7 +36,7 @@
                 />
                 <label class="custom-control-label" for="{{ la.id }}">{{
                   la.name
-                }} year</label>
+                }}</label>
               </div>
             </div>
           </div>

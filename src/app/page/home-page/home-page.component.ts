@@ -10,6 +10,7 @@ import { Options } from "@angular-slider/ngx-slider";
 export class HomePageComponent implements OnInit {
 
  
+  
 
   products: InsuranceProduct[] = [
     {
@@ -237,11 +238,6 @@ export class HomePageComponent implements OnInit {
   maxValue : number = 50000;
   options : Options ={ floor: 1000, ceil: 50000, step: 500 }
   
-
-
-
-
-
 
   // search Text
   private _searchText: string = '';
