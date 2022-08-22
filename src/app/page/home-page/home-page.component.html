@@ -19,13 +19,6 @@
                     <div class="card-body">      
                         Age.
 
-                        <!-- <app-multi-range-slider 
-                            [options]="{floor: 0, ceil: 70}"
-                            [minValue]="0"
-                            [maxValue]="70"
-                        >
-                        </app-multi-range-slider> -->
-
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="y1">
                             <label class="custom-control-label" for="y1">0-10 years</label>
@@ -86,43 +79,8 @@
                 </form>
         
                 <div class="d-flex flex-wrap justify-content-between">
-                    <!-- 1 -->
-                    <div *ngFor="let p of filteredProduct">
-                        <div class="card mb-4 card-size">
-                            <img class="card-img-top card-img-size" [src]="p.insuranceMiniDetailsPic" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{p.insuranceMiniDetailsName}}</h5>
-                                <ul class="card-text bullet">
-                                    <li>
-                                        {{p.insuranceMiniDetailsFBulletin}}
-                                    </li>
-                                    <li>
-                                        {{p.insuranceMiniDetailsSBulletin}}
-                                    </li>
-                                    <li>
-                                        {{p.insuranceMiniDetailsTBulletin}}
-                                    </li>
-                                </ul>
-                                <h5 class="colorPrice">{{p.insuranceMiniDetailsPrice}} THB/year</h5>
-                                <div class="form-check">
-                                    <input class="form-check-input big-checkbox" type="checkbox" value=""
-                                        id="ck-{{p.insuranceMiniDetailsID}}" />
-                                    <a class="btn-moredetail" [routerLink]="['/products', p.insuranceMiniDetailsID]">More
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <app-card-mini></app-card-mini> -->
-                    <!-- 2 -->
-                    <!-- <app-card-mini></app-card-mini>
-  
-                    <app-card-mini></app-card-mini>
-
-                    <app-card-mini></app-card-mini> -->
-
+                    <app-card-mini *ngFor="let item of filteredProduct" [item]="item"></app-card-mini>
                 </div>
-    
             </div>
 
         </div>
