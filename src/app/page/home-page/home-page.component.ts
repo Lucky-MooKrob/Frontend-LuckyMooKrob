@@ -10,7 +10,7 @@ import { Options } from "@angular-slider/ngx-slider";
 export class HomePageComponent implements OnInit {
 
  
-  
+
 
   products: InsuranceProduct[] = [
     {
@@ -234,8 +234,6 @@ export class HomePageComponent implements OnInit {
 
   currentItem = this.filteredProduct;
 
-  minValue : number = 1000;
-  maxValue : number = 50000;
   options : Options ={ floor: 1000, ceil: 50000, step: 500 }
   
 
