@@ -1,5 +1,5 @@
 <form>
     <div class="slider">
-        <ngx-slider [(value)]="minValue"  [(highValue)]="maxValue" [options]="options" #value  (click)="onInputRange(value.value,value.highValue)"></ngx-slider>
+        <ngx-slider [(value)]="minValue"  [(highValue)]="maxValue" [options]="options" #value  (valueChange)="onInputRange(value.value,value.highValue)"></ngx-slider>
     </div>
 </form>
