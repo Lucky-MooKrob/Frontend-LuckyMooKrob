@@ -12,28 +12,23 @@
   </div>
   <div class="modal-body ml-2">
     <div>
-      <label>The selected insurance will be replaced: </label>
-      <div class="form-check ml-4">
+      <label
+        >The selected insurance will be replaced with
+        {{ currentProduct.insuranceMiniDetailsName }}:
+      </label>
+      <div class="form-check ml-4" *ngFor="let product of selectedProducts">
         <input
           class="form-check-input"
           type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault1"
+          value="{{ product.insuranceMiniDetailsID }}"
+          name="form-product"
+          id="form-product-{{ product.insuranceMiniDetailsID }}"
         />
-        <label class="form-check-label" for="flexRadioDefault1">
-          Product1
-        </label>
-      </div>
-      <div class="form-check ml-4">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-          checked
-        />
-        <label class="form-check-label" for="flexRadioDefault2">
-          product2
+        <label
+          class="form-check-label"
+          for="form-product-{{ product.insuranceMiniDetailsID }}"
+        >
+          {{ product.insuranceMiniDetailsName }}
         </label>
       </div>
     </div>

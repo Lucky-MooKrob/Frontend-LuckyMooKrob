@@ -336,6 +336,10 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     }
   }
 
+  trackByProduct(index: Number, product: any) {
+    return product.insuranceMiniDetailsID;
+  }
+
   onCheckedProduct(eventData: {
     product: InsuranceProduct;
     selected: boolean;
@@ -352,5 +356,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     if (this.selectedProducts.length > 2) {
       this.modal.open();
     }
+    // console.log(document.getElementById('product-1'));
+    // console.log(this.modal);
   }
 }

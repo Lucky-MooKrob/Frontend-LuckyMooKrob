@@ -75,10 +75,11 @@
 
         <div class="d-flex flex-wrap justify-content-between">
           <app-card-mini
-            *ngFor="let product of filteredProduct"
+            *ngFor="let product of filteredProduct; trackBy: trackByProduct"
             [product]="product"
             id="product-{{ product.insuranceMiniDetailsID }}"
             (selectedProduct)="onCheckedProduct($event)"
+            trackBy:trackByProduct
           ></app-card-mini>
         </div>
       </div>
@@ -93,4 +94,7 @@
   }}</span>
 </a>
 
-<app-modal></app-modal>
+<app-modal
+  [selectedProducts]="[selectedProducts[0], selectedProducts[1]]"
+  [currentProduct]="selectedProducts[2]"
+></app-modal>
