@@ -1,5 +1,6 @@
 import { Component, OnInit, importProvidersFrom } from '@angular/core';
 import { InsuranceProduct } from 'src/app/model/product';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home-page',
@@ -277,7 +278,7 @@ export class HomePageComponent implements OnInit {
   selectedProducts: InsuranceProduct[] = [];
   isShowReplaceModal: boolean = false;
 
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}
 
@@ -292,9 +293,7 @@ export class HomePageComponent implements OnInit {
   }
 
   // filter type of disease
-
   _listOfDiseaseSelected: string[] = [];
-
   _listOfDisease = [
     { id: 'd1', name: 'Cancer', isSelected: false },
     { id: 'd2', name: 'Cardiovascular', isSelected: false },
@@ -349,5 +348,30 @@ export class HomePageComponent implements OnInit {
     }
     console.log(this.selectedProducts);
     console.log(eventData.selected);
+  }
+
+  closeResult = '';
+
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }
