@@ -13,21 +13,21 @@
   <div class="modal-body ml-2">
     <div>
       <label>
-        {{ currentProduct.insuranceMiniDetailsName }} will be replaced with:
+        {{ currentProduct.name }} will be replaced with:
       </label>
       <div class="form-check ml-4" *ngFor="let product of selectedProducts">
         <input
           class="form-check-input"
           type="radio"
-          value="{{ product.insuranceMiniDetailsID }}"
+          value="{{ product.id }}"
           name="form-product"
-          id="form-product-{{ product.insuranceMiniDetailsID }}"
+          id="form-product-{{ product.id }}"
         />
         <label
           class="form-check-label"
-          for="form-product-{{ product.insuranceMiniDetailsID }}"
+          for="form-product-{{ product.id }}"
         >
-          {{ product.insuranceMiniDetailsName }}
+          {{ product.name }}
         </label>
       </div>
     </div>

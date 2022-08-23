@@ -583,7 +583,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.minValue = inputRange.min;
     this.maxValue = inputRange.max;
     this.isSelectInputRange = true;
-    console.log(this.minValue, ' ', this.maxValue);
+    // console.log(this.minValue, ' ', this.maxValue);
 
     this.searchFilter();
   }
@@ -629,7 +629,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this._listOfAgeSelected = this._listOfAge.filter(
       (x) => x.isSelected == true
     );
-    console.log(this._listOfAgeSelected);
+    // console.log(this._listOfAgeSelected);
 
     if (this._searchText != null && this._searchText != '') {
       this.filteredProduct = this.filteredProduct.filter((p) =>

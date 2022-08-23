@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { InsuranceProduct } from 'src/app/model/product';
+import {  InsuranceProductHomePage } from 'src/app/model/product';
 
 @Component({
   selector: 'app-modal',
@@ -17,18 +17,17 @@ import { InsuranceProduct } from 'src/app/model/product';
 export class ModalComponent implements OnInit, AfterViewInit {
   @ViewChild('modal', { read: TemplateRef }) modal!: TemplateRef<any>;
 
-  @Input() selectedProducts: InsuranceProduct[] = [];
-  @Input() currentProduct: InsuranceProduct = {
-    insuranceMiniDetailsID: 0,
-    insuranceMiniDetailsName: '',
-    insuranceMiniDetailsPic: '',
-    insuranceMiniDetailsPrice: 0,
-    insuranceMiniDetailsFBulletin: '',
-    insuranceMiniDetailsSBulletin: '',
-    insuranceMiniDetailsTBulletin: '',
-    insuranceMiniDetailsStartAge: 0,
-    insuranceMiniDetailsEndAge: 0,
-    insuranceMiniDetailsDisease: '',
+  @Input() selectedProducts: InsuranceProductHomePage[] = [];
+  @Input() currentProduct: InsuranceProductHomePage = {
+    id: 0,
+    name: "",
+    price: 0,
+    pic: "",
+    miniPic: "",
+    minAge: 0,
+    maxAge: 0,
+    bullets: [],
+    typeInsure:[]
   };
 
   constructor(private modalService: NgbModal) {}
