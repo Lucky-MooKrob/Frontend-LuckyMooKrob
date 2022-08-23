@@ -598,7 +598,7 @@ export class HomePageComponent implements OnInit {
     this.searchFilter();
   }
 
-  // filter type of disease
+  // filter type of insurance
 
   _listOfInsureSelected: string[] = [];
 
