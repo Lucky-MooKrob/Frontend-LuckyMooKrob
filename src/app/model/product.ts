@@ -20,3 +20,16 @@ export interface InsuranceProductDetail{
     insuranceDetails: string;
 }
 
+export interface InsuranceProductHomePage{
+    id: number;
+    name: string;
+    price: number;
+    pic: string;
+    miniPic: string;
+    minAge: number;
+    maxAge: number;
+    bullets: any[];
+    typeInsure:any[];
+    
+}
+

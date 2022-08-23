@@ -10,7 +10,7 @@
               [minValue]="1000"
               [maxValue]="200000"
               (rangeInput)="inputRange($event)"
-              >
+            >
             </app-multi-range-slider>
           </div>
         </div>
@@ -38,38 +38,21 @@
 
         <div class="card">
           <div class="card-body">
-            Type of disease.
-
-            <div *ngFor="let ld of _listOfDisease">
+            Type of insurance.
+            <div *ngFor="let li of _listOfInsure">
               <div class="custom-control custom-checkbox">
                 <input
                   type="checkbox"
                   class="custom-control-input"
-                  id="{{ ld.id }}"
+                  id="{{ li.id }}"
                   (change)="searchFilter()"
-                  [(ngModel)]="ld.isSelected"
+                  [(ngModel)]="li.isSelected"
                 />
-                <label class="custom-control-label" for="{{ ld.id }}">{{
-                  ld.name
+                <label class="custom-control-label" for="{{ li.id }}">{{
+                  li.name
                 }}</label>
               </div>
             </div>
-            <!-- <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d2">
-                            <label class="custom-control-label" for="d2">Cardiovascular</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d3">
-                            <label class="custom-control-label" for="d3">Chronic respiratory</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d4">
-                            <label class="custom-control-label" for="d4">Diabetes mellitus</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="d5">
-                            <label class="custom-control-label" for="d5">Other</label>
-                        </div> -->
           </div>
         </div>
       </div>
@@ -87,51 +70,11 @@
           aria-label="Search"
         />
         <div class="d-flex flex-wrap justify-content-between">
-          <!-- 1 -->
-          <div *ngFor="let p of filteredProduct">
-            <div class="card mb-4 card-size">
-              <img
-                class="card-img-top card-img-size"
-                [src]="p.insuranceMiniDetailsPic"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">{{ p.insuranceMiniDetailsName }}</h5>
-                <ul class="card-text bullet">
-                  <li>
-                    {{ p.insuranceMiniDetailsFBulletin }}
-                  </li>
-                  <li>
-                    {{ p.insuranceMiniDetailsSBulletin }}
-                  </li>
-                  <li>
-                    {{ p.insuranceMiniDetailsTBulletin }}
-                  </li>
-                </ul>
-                <h5 class="colorPrice">
-                  {{ p.insuranceMiniDetailsPrice }} THB/year
-                </h5>
-                <div class="form-check">
-                  <input
-                    class="form-check-input big-checkbox"
-                    type="checkbox"
-                    value=""
-                    id="ck-{{ p.insuranceMiniDetailsID }}"
-                  />
-                  <a
-                    class="btn-moredetail"
-                    [routerLink]="['/products', p.insuranceMiniDetailsID]"
-                    >More Detail</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <app-card-mini></app-card-mini> -->
-          <!-- 2 -->
-          <!-- <app-card-mini></app-card-mini>
-  
-                    <app-card-mini></app-card-mini> -->
+          <app-card-mini
+          *ngFor="let product of filteredProduct"
+          [product]="product"
+          (selectedProduct)="onCheckedProduct($event)"
+        ></app-card-mini>
         </div>
       </div>
     </div>
