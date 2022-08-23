@@ -1,19 +1,22 @@
-import { Component, OnInit, importProvidersFrom } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { InsuranceProduct } from 'src/app/model/product';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/component/modal/modal.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, AfterViewInit {
+  @ViewChild(ModalComponent) modal!: ModalComponent;
+
   products: InsuranceProduct[] = [
     {
       insuranceMiniDetailsID: 1,
       insuranceMiniDetailsName: 'First class  Cancer insurance 1 0-30',
       insuranceMiniDetailsPic:
-        'https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG',
+        'https://www.azay.co.th/th_TH/_jcr_content/root/parsys/stage_carousel_copy_/stage-carousel/full_width_carousel__2071589293/stageimage.img.82.3360.jpeg/1654577563532/aem-home-1522x512-.jpeg',
       insuranceMiniDetailsPrice: 30000,
       insuranceMiniDetailsFBulletin:
         'คุ้มครองค่ารักษาพยาบาลด้วยโรคติดเชื้อและอุบัติเหตุ พร้อมบริการปรึกษาหมอออนไลน์',
@@ -276,11 +279,11 @@ export class HomePageComponent implements OnInit {
   ];
   filteredProduct: InsuranceProduct[] = this.products;
   selectedProducts: InsuranceProduct[] = [];
-  isShowReplaceModal: boolean = false;
 
-  constructor(private modalService: NgbModal) {}
+  constructor() {}
 
   ngOnInit(): void {}
+  ngAfterViewInit(): void {}
 
   // search Text
   private _searchText: string = '';
@@ -346,32 +349,8 @@ export class HomePageComponent implements OnInit {
           eventData.product.insuranceMiniDetailsID
       );
     }
-    console.log(this.selectedProducts);
-    console.log(eventData.selected);
-  }
-
-  closeResult = '';
-
-  open(content: any) {
-    this.modalService
-      .open(content, { ariaLabelledBy: 'modal-basic-title' })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
+    if (this.selectedProducts.length > 2) {
+      this.modal.open();
     }
   }
 }
