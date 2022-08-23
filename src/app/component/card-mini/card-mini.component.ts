@@ -4,7 +4,7 @@ import { InsuranceProductHomePage } from 'src/app/model/product';
 @Component({
   selector: 'app-card-mini',
   templateUrl: './card-mini.component.html',
-  styleUrls: ['./card-mini.component.scss']
+  styleUrls: ['./card-mini.component.scss'],
 })
 export class CardMiniComponent implements OnInit {
 
@@ -34,5 +34,4 @@ export class CardMiniComponent implements OnInit {
       selected: event.currentTarget.checked,
     });
   }
-
 }

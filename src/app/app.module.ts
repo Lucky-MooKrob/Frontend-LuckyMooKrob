@@ -19,6 +19,7 @@ import { MultiRangeSliderComponent } from './component/multi-range-slider/multi-
 import { CardMiniComponent } from './component/card-mini/card-mini.component';
 import { CardCompareComponent } from './component/card-compare/card-compare.component';
 import { CardCompareAddComponent } from './component/card-compare-add/card-compare-add.component';
+import { ModalComponent } from './component/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { CardCompareAddComponent } from './component/card-compare-add/card-compa
     MultiRangeSliderComponent,
     CardMiniComponent,
     CardCompareComponent,
-    CardCompareAddComponent
+    CardCompareAddComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,6 @@ import { CardCompareAddComponent } from './component/card-compare-add/card-compa
     NgxSliderModule,
   ],
   providers: [],
-  bootstrap: [AppComponent,NavbarComponent,FooterComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

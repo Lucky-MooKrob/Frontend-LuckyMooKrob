@@ -1,16 +1,18 @@
-import { Component, OnInit, importProvidersFrom } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { InsuranceProductHomePage } from 'src/app/model/product';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/component/modal/modal.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, AfterViewInit {
   minValue: number = 1000;
   maxValue: number = 90000;
-
+  @ViewChild(ModalComponent) modal!: ModalComponent;  
+  
   products: InsuranceProductHomePage[] = [
     {
       "id": 1,
@@ -571,8 +573,6 @@ export class HomePageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
-
   filteredProduct: InsuranceProductHomePage[] = this.products;
   selectedProducts: InsuranceProductHomePage[] = [];
   currentItem = this.filteredProduct;
@@ -588,6 +588,8 @@ export class HomePageComponent implements OnInit {
     this.searchFilter();
   }
 
+  ngOnInit(): void {}
+  ngAfterViewInit(): void {}
   // search Text
   private _searchText: string = '';
   get searchText(): string {
@@ -618,24 +620,6 @@ export class HomePageComponent implements OnInit {
     { id: 'a3', name: '21-50', isSelected: false, min: 21, max: 50 },
     { id: 'a4', name: '51-70', isSelected: false, min: 51, max: 70 },
   ];
-
-
-  onCheckedProduct(eventData: {
-    product: InsuranceProductHomePage;
-    selected: boolean;
-  }) {
-    if (eventData.selected) {
-      this.selectedProducts.push(eventData.product);
-    } else {
-      this.selectedProducts = this.selectedProducts.filter(
-        (product) =>
-          product.id !==
-          eventData.product.id
-      );
-    }
-    console.log(this.selectedProducts);
-    console.log(eventData.selected);
-  }
 
   searchFilter() {
     this.filteredProduct = this.products;
@@ -714,5 +698,28 @@ export class HomePageComponent implements OnInit {
         (item, index) => temp.indexOf(item) === index
       );
     }
+  }
+  trackByProduct(index: Number, product: any) {
+    return product.insuranceMiniDetailsID;
+  }
+
+  onCheckedProduct(eventData: {
+    product: InsuranceProductHomePage;
+    selected: boolean;
+  }) {
+    if (eventData.selected) {
+      this.selectedProducts.push(eventData.product);
+    } else {
+      this.selectedProducts = this.selectedProducts.filter(
+        (product) =>
+          product.id !==
+          eventData.product.id
+      );
+    }
+    if (this.selectedProducts.length > 2) {
+      this.modal.open();
+    }
+    // console.log(document.getElementById('product-1'));
+    // console.log(this.modal);
   }
 }

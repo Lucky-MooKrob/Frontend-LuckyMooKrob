@@ -62,18 +62,22 @@
   <div class="col-sm-9 col-md-8 col-lg-9">
     <div class="row">
       <div class="col-sm-12">
-        <input
-          class="form-control w-100 mb-4"
-          [(ngModel)]="searchText"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
+        <form class="form-inline">
+          <input
+            class="form-control w-100 mb-4"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
+
         <div class="d-flex flex-wrap justify-content-between">
           <app-card-mini
-            *ngFor="let product of filteredProduct"
+            *ngFor="let product of filteredProduct; trackBy: trackByProduct"
             [product]="product"
+            id="product-{{ product.id}}"
             (selectedProduct)="onCheckedProduct($event)"
+            trackBy:trackByProduct
           ></app-card-mini>
         </div>
       </div>
@@ -82,5 +86,13 @@
 </div>
 
 <a class="btn btn-compare btn-light" href="#"
-  >Compare <span class="badge badge-pill badge-primary">2</span>
+  >Compare
+  <span class="badge badge-pill badge-primary">{{
+    selectedProducts.length ? selectedProducts.length : ""
+  }}</span>
 </a>
+
+<app-modal
+  [selectedProducts]="[selectedProducts[0], selectedProducts[1]]"
+  [currentProduct]="selectedProducts[2]"
+></app-modal>

@@ -1,0 +1,47 @@
+<ng-template #modal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title ml-2" id="modal-basic-title">
+      Do you want to replace the insurance?
+    </h4>
+    <i
+      class="bi bi-x"
+      style="position: absolute; right: 10px; top: 12px; font-size: 2rem"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></i>
+  </div>
+  <div class="modal-body ml-2">
+    <div>
+      <label>
+        {{ currentProduct.insuranceMiniDetailsName }} will be replaced with:
+      </label>
+      <div class="form-check ml-4" *ngFor="let product of selectedProducts">
+        <input
+          class="form-check-input"
+          type="radio"
+          value="{{ product.insuranceMiniDetailsID }}"
+          name="form-product"
+          id="form-product-{{ product.insuranceMiniDetailsID }}"
+        />
+        <label
+          class="form-check-label"
+          for="form-product-{{ product.insuranceMiniDetailsID }}"
+        >
+          {{ product.insuranceMiniDetailsName }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-modal-cancel btn-secondary"
+      (click)="modal.dismiss('Cancel')"
+    >
+      Cancel
+    </button>
+    <button type="button" class="btn btn-modal" (click)="modal.close('OK')">
+      OK
+    </button>
+  </div>
+</ng-template>
