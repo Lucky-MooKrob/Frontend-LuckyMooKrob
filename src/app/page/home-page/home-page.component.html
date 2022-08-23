@@ -71,10 +71,10 @@
         />
         <div class="d-flex flex-wrap justify-content-between">
           <app-card-mini
-          *ngFor="let product of filteredProduct"
-          [product]="product"
-          (selectedProduct)="onCheckedProduct($event)"
-        ></app-card-mini>
+            *ngFor="let product of filteredProduct"
+            [product]="product"
+            (selectedProduct)="onCheckedProduct($event)"
+          ></app-card-mini>
         </div>
       </div>
     </div>
