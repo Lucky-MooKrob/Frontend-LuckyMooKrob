@@ -9,7 +9,7 @@ import { InsuranceProductHomePage } from 'src/app/model/product';
 })
 export class HomePageComponent implements OnInit {
   minValue: number = 1000;
-  maxValue: number = 200000;
+  maxValue: number = 90000;
 
   products: InsuranceProductHomePage[] = [
     {
@@ -603,11 +603,11 @@ export class HomePageComponent implements OnInit {
   _listOfInsureSelected: string[] = [];
 
   _listOfInsure = [
-    { id: 'd1', name: 'Cancer', isSelected: false },
-    { id: 'd2', name: 'Cardiovascular', isSelected: false },
-    { id: 'd3', name: 'Chronic respiratory', isSelected: false },
-    { id: 'd4', name: 'Diabetes mellitus', isSelected: false },
-    { id: 'd5', name: 'Other', isSelected: false },
+    { id: 'i1', name: 'Cancer Insurance', isSelected: false },
+    { id: 'i2', name: 'Kids Insurance', isSelected: false },
+    { id: 'i3', name: 'OPD Package', isSelected: false },
+    { id: 'i4', name: 'IPD Package', isSelected: false },
+    { id: 'i5', name: 'ICU Coverage', isSelected: false },
   ];
 
   _listOfAgeSelected: any[] = [];
@@ -659,14 +659,16 @@ export class HomePageComponent implements OnInit {
     if (this._listOfInsureSelected.length != 0) {
       let temp: InsuranceProductHomePage[] = [];
       for (let i = 0; i < this._listOfInsureSelected.length; i++) {
-        let data = this.filteredProduct.filter(
-          (p) => {
-            for (let i in p.typeInsure) {
-              p.typeInsure[i].name.toLowerCase().replace(/ +/g, '') ==
-                this._listOfInsureSelected[i].toLowerCase().replace(/ +/g, '')
+        let data: InsuranceProductHomePage[] = []
+        for (let j = 0; j < this.filteredProduct.length; j++) {
+          for (let k = 0; k < this.filteredProduct[j].typeInsure.length; k++) {
+            if (this.filteredProduct[j].typeInsure[k].name.toLowerCase() == this._listOfInsureSelected[i].toLowerCase()) {
+
+              data.push(this.filteredProduct[j]);
             }
+
           }
-        );
+        }
         if (data != undefined) {
           temp = [...temp, ...data];
         }
