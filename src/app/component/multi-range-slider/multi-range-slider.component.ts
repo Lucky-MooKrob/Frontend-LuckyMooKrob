@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,Output, EventEmitter } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
@@ -8,18 +8,25 @@ import { Options } from '@angular-slider/ngx-slider';
 })
 export class MultiRangeSliderComponent implements OnInit {
 
+
   @Input() options: Options = {
     floor: 0,
     ceil: 100,
     step: 0,
   };
-  @Input() minValue: number = 0;
-  @Input() maxValue: number = 0;
+  @Input() minValue: number = 1000;
+  @Input() maxValue: number = 200000;
+
+  @Output() rangeInput = new EventEmitter<{min:number , max:number}>();
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  onInputRange(minV: number ,maxV: number ) {
+    this.rangeInput.emit({min:minV , max:maxV});
   }
 
 }
