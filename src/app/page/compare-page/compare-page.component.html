@@ -1,6 +1,23 @@
 <div class="d-flex" style="justify-content: space-evenly;">
-    <app-card-compare></app-card-compare> 
-    <app-card-compare-add class="d-flex" ></app-card-compare-add>
+    <button type="button" class="btn btn-link" *ngIf="(display1 === false && display2 === false)" routerLink="/product">Click here to select the product</button>
+    
+    <div *ngIf="display1 == true">
+        <app-card-compare 
+        *ngFor="let product1 of filteredProduct1"
+        [product1]="product1"
+        [column]="1"></app-card-compare>
+    </div>
+    
+    <app-card-compare-add class="d-flex" *ngIf="(display1 === false && display2 === true)"></app-card-compare-add> 
+    <div *ngIf="display2 == true">
+        <app-card-compare 
+        *ngFor="let product1 of filteredProduct2"
+        [product1]="product1"
+        [column]="2"></app-card-compare>
+    </div>
+    
+     
+    <app-card-compare-add class="d-flex" *ngIf="(display1 === true && display2 === false)"></app-card-compare-add>
 
     <!-- <div class="card mb-4" style="width: 400px;" >
         <div style="position: relative;">

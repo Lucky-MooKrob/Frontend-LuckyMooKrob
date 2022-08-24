@@ -1,0 +1,167 @@
+[
+        {
+            "id": 1,
+            "INSURANCEPRODUCT": "MY FIRST CLASS @BDMS HEALTH INSURANCE",
+            "AgeCoverage": "6 - 70 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "20,000 THB/Day",
+            "OPDCoverage": "Payable per actual expense",
+            "MaximumCoveragePolicy": "Benefit limit up to 120 million Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "83,305 THB/Year"
+        },
+        {
+            "id": 2,
+            "INSURANCEPRODUCT": "MY HEALTH PLUS DOUBLE CARE HEALTH INSURANCE",
+            "AgeCoverage": "11 - 70 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "3,000 THB/Day",
+            "OPDCoverage": "Payable per actual expense",
+            "MaximumCoveragePolicy": "Benefit limit up to 8 million Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "19,992 THB/Year"
+        },
+        {
+            "id": 3,
+            "INSURANCEPRODUCT": "MY HEALTH PLUS SABAI KAPAO HEALTH INSURANCE",
+            "AgeCoverage": "11 - 69 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "2,000 THB/Day",
+            "OPDCoverage": "Payable per actual expense",
+            "MaximumCoveragePolicy": "Benefit limit up to 100,000 Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "14,355 THB/Year"
+        },
+        {
+            "id": 4,
+            "INSURANCEPRODUCT": "MAO MAO KIDS HEALTH INSURANCE",
+            "AgeCoverage": "1 Month 1 Day - 10 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "1,500 THB/Day",
+            "OPDCoverage": "Payable per actual expense",
+            "MaximumCoveragePolicy": "Benefit limit up to 1.2 million Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "48,231 THB/Year"
+        },
+        {
+            "id": 5,
+            "INSURANCEPRODUCT": "OPD MEDICAL KIDS HEALTH INSURANCE",
+            "AgeCoverage": "1 Month 1 Day - 10 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "2,000 THB",
+            "MaximumCoveragePolicy": "Up to 2,000 Baht/time, 30 times/policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "8,783 THB/Year"
+        },
+        {
+            "id": 6,
+            "INSURANCEPRODUCT": "DailyCompensation HEALTH INSURANCE",
+            "AgeCoverage": "11-60 Years",
+            "DailyCompensation": "1,000 THB/Day",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 365,000 Baht per policy year",
+            "TaxBenefit": "FALSE",
+            "Price": "1,464 THB/Year"
+        },
+        {
+            "id": 7,
+            "INSURANCEPRODUCT": "SPECIAL DAILY HOSPITALISATION ALLOWANCE HEALTH INSURANCE",
+            "AgeCoverage": "1 Year 1 Day - 60 Years",
+            "DailyCompensation": "4,000 THB/Day",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 500,000 Baht per policy year",
+            "TaxBenefit": "FALSE",
+            "Price": "2,500 THB/Year"
+        },
+        {
+            "id": 8,
+            "INSURANCEPRODUCT": "ICU EXTRA HEALTH INSURANCE",
+            "AgeCoverage": "1 Year 1 Day -70 Years",
+            "DailyCompensation": "4,000 THB/Day",
+            "IPDRoomCoverage": "8,000 THB/Day",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 700,000 Baht per policy year",
+            "TaxBenefit": "FALSE",
+            "Price": "7,960 THB/Year"
+        },
+        {
+            "id": 9,
+            "INSURANCEPRODUCT": "PREMIUM CARE HEALTH INSURANCE",
+            "AgeCoverage": "16 - 55 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 4 million Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "23,345 THB/Year"
+        },
+        {
+            "id": 10,
+            "INSURANCEPRODUCT": "MY CI 48 BEYOND HEALTH INSURANCE",
+            "AgeCoverage": "1 Month 1 Day -70 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 1 million Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "5,336 THB/Year"
+        },
+        {
+            "id": 11,
+            "INSURANCEPRODUCT": "MY CI 48 HEALTH INSURANCE",
+            "AgeCoverage": "16-60 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 1 million Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "4,000 THB/Year"
+        },
+        {
+            "id": 12,
+            "INSURANCEPRODUCT": "CANCER EXCLUSIVE HEALTH INSURANCE",
+            "AgeCoverage": "16-60 Years",
+            "DailyCompensation": "3,000 THB/Day",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 3 million Baht per policy year",
+            "TaxBenefit": "FALSE",
+            "Price": "18,168 THB/Year"
+        },
+        {
+            "id": 13,
+            "INSURANCEPRODUCT": "CANCER JIB JIB HEALTH INSURANCE",
+            "AgeCoverage": "1-50 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 1 Million Baht for cancer at all stages",
+            "TaxBenefit": "TRUE",
+            "Price": "6,000 THB/Year"
+        },
+        {
+            "id": 14,
+            "INSURANCEPRODUCT": "IPD COVERAGE HEALTH INSURANCE",
+            "AgeCoverage": "11 - 70 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "4,500 THB/Day",
+            "OPDCoverage": "-",
+            "MaximumCoveragePolicy": "Benefit limit up to 400,000 Baht per policy year",
+            "TaxBenefit": "TRUE",
+            "Price": "11,000 THB/Year"
+        },
+        {
+            "id": 15,
+            "INSURANCEPRODUCT": "OPD HS HEALTH INSURANCE",
+            "AgeCoverage": "1 Month 1 Day - 60 Years",
+            "DailyCompensation": "-",
+            "IPDRoomCoverage": "-",
+            "OPDCoverage": "4,000 THB",
+            "MaximumCoveragePolicy": "Benefit limit up to 120,000 Baht per policy year",
+            "TaxBenefit": "FALSE",
+            "Price": "12,000 THB/Year"
+        }
+    ]

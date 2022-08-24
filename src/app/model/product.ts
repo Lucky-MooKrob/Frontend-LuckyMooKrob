@@ -33,3 +33,16 @@ export interface InsuranceProductHomePage{
     
 }
 
+export interface InsuranceProductComparePage{
+    id: number;
+    INSURANCEPRODUCT: string;
+    AgeCoverage: string;
+    DailyCompensation: string;
+    IPDRoomCoverage: string;
+    OPDCoverage: string;
+    MaximumCoveragePolicy: string;
+    TaxBenefit: string;
+    Price: string;
+    
+}
+

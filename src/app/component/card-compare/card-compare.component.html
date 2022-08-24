@@ -1,12 +1,37 @@
   <div class="card mb-4" style="width: 400px;" >
         <div style="position: relative;">
             <img class="card-img-top card-img-size" src="https://image.bangkokbiznews.com/image/kt/media/image/news/2020/09/10/897354/750x422_897354_1599783351.jpg?x-image-process=style/LG" alt="Card image cap">
-            <i class="bi bi-x" style="position: absolute; right: 10px; top:7px; font-size: 1.5rem;"></i>
+            
+            <i class="bi bi-x" style="position: absolute; right: 10px; top:7px; font-size: 1.5rem;" (click)=onClick(product1.id,column)></i>
+        
         </div>
         <div class="card-body">
-            <h5 class="card-title" >Frst class insurance</h5>
-            <p class="font-weight-bold mb-1" style="text-align:center;" >Topic</p>                    
-            <p style="color:dimgrey; text-align:center;">Detail</p>
+
+
+            <h5 class="card-title" >{{product1.INSURANCEPRODUCT}}</h5>
+
+            <p class="font-weight-bold mb-1" style="text-align:center;" >Age Coverage</p>                    
+            <p style="color:dimgrey; text-align:center;">{{product1.AgeCoverage}}</p>
+
+            <p class="font-weight-bold mb-1" style="text-align:center;" >Daily Compensation</p>                    
+            <p style="color:dimgrey; text-align:center;">{{product1.DailyCompensation}}</p>
+
+            <p class="font-weight-bold mb-1" style="text-align:center;" >IPD Room Coverage</p>                    
+            <p style="color:dimgrey; text-align:center;">{{product1.IPDRoomCoverage}}</p>
+
+            <p class="font-weight-bold mb-1" style="text-align:center;" >OPD Coverage</p>                    
+            <p style="color:dimgrey; text-align:center;">{{product1.OPDCoverage}}</p>
+
+            <p class="font-weight-bold mb-1" style="text-align:center;" >Maximum Coverage Policy</p>                    
+            <p style="color:dimgrey; text-align:center;">{{product1.MaximumCoveragePolicy}}</p>
+
+            <p class="font-weight-bold mb-1" style="text-align:center;" >Tax Benefit</p>                    
+            <p style="color:dimgrey; text-align:center;">{{product1.TaxBenefit}}</p>
+
+            <p class="font-weight-bold mb-1" style="text-align:center;" >Price</p>                    
+            <p style="color:dimgrey; text-align:center;">{{product1.Price}}</p>
+
+
             
             <div style="text-align:center">
                 <a href="#" class="link-primary" style="text-decoration: underline; display:inline-block">More Detail</a>

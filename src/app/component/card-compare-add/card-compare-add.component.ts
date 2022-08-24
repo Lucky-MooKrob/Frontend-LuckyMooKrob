@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-card-compare-add',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-compare-add.component.scss']
 })
 export class CardCompareAddComponent implements OnInit {
+
 
   constructor() { }
 
