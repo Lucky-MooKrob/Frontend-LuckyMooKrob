@@ -1,23 +1,22 @@
 <div class="card mb-4 card-size">
-    <img
-      class="card-img-top card-img-size"
-      [src]="product.miniPic"
-      alt="Card image cap"
-    />
-    <div class="card-body">
-      <h5 class="card-title">{{ product.name }}</h5>
-      <ul class="card-text bullet">
-        <div *ngFor="let b of product.bullets">
-          <li>
-            {{ b.name }}
-          </li>
-        </div>
-      </ul>
-  
-      <div class="card-bottom">
-        <h5 class="colorPrice">
-          {{ product.price | number:'4.0-0' }} THB/year
-        </h5>
+  <img
+    class="card-img-top card-img-size"
+    [src]="product.miniPic"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <ul class="card-text bullet">
+      <div *ngFor="let b of product.bullets">
+        <li>
+          {{ b.name }}
+        </li>
+      </div>
+    </ul>
+
+    <div class="card-bottom">
+      <h5 class="colorPrice">{{ product.price | number: "4.0-0" }} THB/year</h5>
+      <div *ngIf="product.id == item1 || product.id == item2" > 
         <div class="form-check">
           <input
             class="form-check-input big-checkbox"
@@ -25,14 +24,27 @@
             value="{{ product.id }}"
             id="ck-{{ product.id }}"
             (change)="onChanged($event)"
+            checked
           />
           <label class="label-select-to-compare">Select to compare.</label>
-          <a
-            class="btn-moredetail"
-            [routerLink]="['/products', product.id]"
+          <a class="btn-moredetail" [routerLink]="['/products', product.id]"
             >More Detail</a
           >
         </div>
       </div>
+      <div class="form-check" [hidden]="product.id == item1 || product.id == item2">
+        <input
+          class="form-check-input big-checkbox"
+          type="checkbox"
+          value="{{ product.id }}"
+          id="ck-{{ product.id }}"
+          (change)="onChanged($event)"
+        />
+        <label class="label-select-to-compare">Select to compare.</label>
+        <a class="btn-moredetail" [routerLink]="['/products', product.id]"
+          >More Detail</a
+        >
+      </div>
     </div>
   </div>
+</div>

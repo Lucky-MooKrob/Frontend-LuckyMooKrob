@@ -62,14 +62,15 @@
   <div class="col-sm-9 col-md-8 col-lg-9">
     <div class="row">
       <div class="col-sm-12">
-        <form class="form-inline">
+
           <input
             class="form-control w-100 mb-4"
             type="search"
             placeholder="Search"
             aria-label="Search"
+            [(ngModel)]="searchText"
           />
-        </form>
+
 
         <div class="d-flex flex-wrap justify-content-between">
           <app-card-mini
@@ -84,7 +85,6 @@
     </div>
   </div>
 </div>
-
 <a class="btn btn-compare btn-light" routerLink="/compare"
   >Compare
   <span class="badge badge-pill badge-primary">{{

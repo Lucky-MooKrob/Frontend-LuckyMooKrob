@@ -14,8 +14,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   minValue: number = 1000;
   maxValue: number = 90000;
   insuranceIDArr: number[] | undefined = [];
-  @ViewChild(ModalComponent) modal!: ModalComponent;  
-  
+  @ViewChild(ModalComponent) modal!: ModalComponent;
+
   products: InsuranceProductHomePage[] = data;
 
   constructor(
@@ -23,6 +23,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     private service: AppServiceService
 
   ) { }
+
 
   filteredProduct: InsuranceProductHomePage[] = this.products;
   selectedProducts: InsuranceProductHomePage[] = [];
@@ -39,8 +40,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.searchFilter();
   }
 
-  ngOnInit(): void {}
-  ngAfterViewInit(): void {}
+  ngOnInit(): void { }
+  ngAfterViewInit(): void { }
   // search Text
   private _searchText: string = '';
   get searchText(): string {
@@ -158,6 +159,9 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     product: InsuranceProductHomePage;
     selected: boolean;
   }) {
+
+
+    
     if (eventData.selected) {
       this.selectedProducts.push(eventData.product);
     } else {
@@ -167,19 +171,22 @@ export class HomePageComponent implements OnInit, AfterViewInit {
           eventData.product.id
       );
     }
+
     if (this.selectedProducts.length > 2) {
       this.modal.open();
     }
 
-    this.insuranceIDArr = this.selectedProducts.map((item: InsuranceProductHomePage)=>{
+    this.insuranceIDArr = this.selectedProducts.map((item: InsuranceProductHomePage) => {
       return item.id
     })
+
+    //console.log(this.selectedProducts);
 
 
     this.service.statusCheck.statusColumns1 = this.insuranceIDArr[0]
     this.service.statusCheck.statusColumns2 = this.insuranceIDArr[1]
-    console.log("🚀 ~ file: home-page.component.ts ~ line 161 ~ HomePageComponent ~ selected", eventData.selected)
+    //console.log("🚀 ~ file: home-page.component.ts ~ line 161 ~ HomePageComponent ~ selected", eventData.selected)
 
-    
+
   }
 }
