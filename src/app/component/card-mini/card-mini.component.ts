@@ -33,6 +33,5 @@ export class CardMiniComponent implements OnInit {
       product: this.product,
       selected: event.currentTarget.checked,
     });
-    console.log("🚀 ~ file: card-mini.component.ts ~ line 35 ~ CardMiniComponent ~ onChanged ~ selected", this.selectedProduct)
   }
 }

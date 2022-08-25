@@ -36,7 +36,7 @@ export class CardCompareComponent implements OnInit {
 
   onClick(id: number,columnNo: number){
 
-    this.reloadCurrentRoute()
+    
 
     console.log(columnNo);
     console.log(id);
@@ -47,6 +47,8 @@ export class CardCompareComponent implements OnInit {
     if(columnNo === 2){
       this.service.statusCheck.statusColumns2 = undefined
     }
+
+    this.reloadCurrentRoute()
     console.log("🚀 ~ file: card-compare.component.ts ~ line 41 ~ CardCompareComponent ~ onClick ~ this.service.statusCheck.statusColumns1", this.service.statusCheck.statusColumns1)
     console.log("🚀 ~ file: card-compare.component.ts ~ line 44 ~ CardCompareComponent ~ onClick ~ this.service.statusCheck.statusColumns2", this.service.statusCheck.statusColumns2)
   }

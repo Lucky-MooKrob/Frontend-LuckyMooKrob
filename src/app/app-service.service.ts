@@ -13,17 +13,7 @@ export class AppServiceService {
     statusColumns2: undefined
   };
 
-  public checkboxStatus: {
-
-    statusCheckbox1: boolean,
-    statusCheckbox2: boolean,
-    statusCheckbox3: boolean,
-
-  }= {
-    statusCheckbox1: false,
-    statusCheckbox2: false,
-    statusCheckbox3: false,
-  }
+  public selected: boolean = false;
 
 
   constructor() { }

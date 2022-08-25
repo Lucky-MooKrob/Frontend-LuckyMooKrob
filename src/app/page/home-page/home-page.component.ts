@@ -39,7 +39,10 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.searchFilter();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+
+  }
   ngAfterViewInit(): void {}
   // search Text
   private _searchText: string = '';
@@ -149,6 +152,7 @@ export class HomePageComponent implements OnInit, AfterViewInit {
         (item, index) => temp.indexOf(item) === index
       );
     }
+
   }
   trackByProduct(index: Number, product: any) {
     return product.id;
@@ -175,11 +179,15 @@ export class HomePageComponent implements OnInit, AfterViewInit {
       return item.id
     })
 
-
-    this.service.statusCheck.statusColumns1 = this.insuranceIDArr[0]
-    this.service.statusCheck.statusColumns2 = this.insuranceIDArr[1]
+    if (this.insuranceIDArr[0] != null){
+      this.service.statusCheck.statusColumns1 = this.insuranceIDArr[0]
+    }
+    if (this.insuranceIDArr[1] != null){
+      this.service.statusCheck.statusColumns2 = this.insuranceIDArr[1]
+    }
+    
     console.log("🚀 ~ file: home-page.component.ts ~ line 161 ~ HomePageComponent ~ selected", eventData.selected)
-
+    console.log("🚀 ~ file: home-page.component.ts ~ line 169 ~ HomePageComponent ~ selectedProducts", this.selectedProducts)
     
   }
 }
