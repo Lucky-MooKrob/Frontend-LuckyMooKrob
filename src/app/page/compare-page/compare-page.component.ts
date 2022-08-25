@@ -32,7 +32,6 @@ export class ComparePageComponent implements OnInit {
     this.showFiltedProduct1()
     this.showFiltedProduct2()
     this.createColumn()
-    console.log(this.service.checkcolumns);
     console.log("🚀 ~ file: compare-page.component.ts ~ line 44 ~ ComparePageComponent ~ createColumn ~ this.colunm1", this.colunm1)
     console.log("🚀 ~ file: compare-page.component.ts ~ line 45 ~ ComparePageComponent ~ createColumn ~ this.colunm2", this.colunm2)
 

@@ -178,10 +178,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 
     this.service.statusCheck.statusColumns1 = this.insuranceIDArr[0]
     this.service.statusCheck.statusColumns2 = this.insuranceIDArr[1]
+    console.log("🚀 ~ file: home-page.component.ts ~ line 161 ~ HomePageComponent ~ selected", eventData.selected)
 
-    console.log(this.service.statusCheck);
     
-    // console.log(document.getElementById('product-1'));
-    // console.log(this.modal);
   }
 }
