@@ -3,6 +3,7 @@ import { AppServiceService } from 'src/app/app-service.service';
 import { InsuranceProductHomePage } from 'src/app/model/product';
 import data from 'src/app/data/products.json';
 import { FormControl, Validators } from '@angular/forms';
+import { getLocaleFirstDayOfWeek } from '@angular/common';
 
 @Component({
   selector: 'app-card-mini',
@@ -40,7 +41,8 @@ export class CardMiniComponent implements OnInit {
 
   ngOnInit(): void {
     
-    //this.CheckedProduct = this.CheckedProduct.filter(p=>p.id == this.service.statusCheck.statusColumns1 || p.id == this.service.statusCheck.statusColumns2)
+    console.log("ACACACAC");
+    
   }
 
   onChanged(event: any) {

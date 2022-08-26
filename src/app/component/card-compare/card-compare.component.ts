@@ -29,22 +29,22 @@ export class CardCompareComponent implements OnInit {
     private service: AppServiceService,
     private router: Router
 
-  ) {}
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onClick(id: number,columnNo: number){
+  onClick(id: number, columnNo: number) {
 
     this.reloadCurrentRoute()
 
     console.log(columnNo);
     console.log(id);
-    if(columnNo === 1){
+    if (columnNo === 1) {
       this.service.statusCheck.statusColumns1 = undefined
       // this.test.next(undefined)
     }
-    if(columnNo === 2){
+    if (columnNo === 2) {
       this.service.statusCheck.statusColumns2 = undefined
     }
     console.log("🚀 ~ file: card-compare.component.ts ~ line 41 ~ CardCompareComponent ~ onClick ~ this.service.statusCheck.statusColumns1", this.service.statusCheck.statusColumns1)
@@ -53,9 +53,9 @@ export class CardCompareComponent implements OnInit {
 
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
     });
-}
+  }
 
 }

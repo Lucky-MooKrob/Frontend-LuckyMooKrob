@@ -44,6 +44,9 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     if( this.service.statusCheck.statusColumns1 != undefined || this.service.statusCheck.statusColumns1 != undefined ){
       this.selectedProducts = this.filteredProduct.filter(p => p.id == this.service.statusCheck.statusColumns1 || p.id == this.service.statusCheck.statusColumns2)
     }
+    console.log("AFAFAFAF");
+    
+    
    }
   ngAfterViewInit(): void { }
   // search Text

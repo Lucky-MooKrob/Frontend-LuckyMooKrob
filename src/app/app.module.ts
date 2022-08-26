@@ -21,6 +21,7 @@ import { CardMiniComponent } from './component/card-mini/card-mini.component';
 import { CardCompareComponent } from './component/card-compare/card-compare.component';
 import { CardCompareAddComponent } from './component/card-compare-add/card-compare-add.component';
 import { ModalComponent } from './component/modal/modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { ModalComponent } from './component/modal/modal.component';
     CardMiniComponent,
     CardCompareComponent,
     CardCompareAddComponent,
-    ModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,7 @@ import { ModalComponent } from './component/modal/modal.component';
     FormsModule,
     RouterModule.forRoot(route, { useHash: false }),
     NgxSliderModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppServiceService } from 'src/app/app-service.service';
-
-
 import data1 from 'src/app/data/compare-product.json';
 import { InsuranceProductComparePage } from 'src/app/model/product';
 
@@ -23,7 +21,7 @@ export class ComparePageComponent implements OnInit {
 
   constructor(
 
-    private service: AppServiceService
+    private service: AppServiceService,
 
   ) { }
 

@@ -7,7 +7,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import {  InsuranceProductHomePage } from 'src/app/model/product';
+import { InsuranceProductHomePage } from 'src/app/model/product';
+import { Route, Router } from '@angular/router';
+import { AppServiceService } from 'src/app/app-service.service';
 
 @Component({
   selector: 'app-modal',
@@ -27,21 +29,30 @@ export class ModalComponent implements OnInit, AfterViewInit {
     minAge: 0,
     maxAge: 0,
     bullets: [],
-    typeInsure:[]
+    typeInsure: []
   };
 
-  constructor(private modalService: NgbModal) {}
+  modalReference: any;
+  radioChecked: boolean = true;
 
-  ngOnInit(): void {}
+  constructor(
+    private modalService: NgbModal,
+    private router: Router,
+    private service: AppServiceService
+  ) { }
 
-  ngAfterViewInit(): void {}
+  ngOnInit(): void { }
+
+  ngAfterViewInit(): void { }
 
   open() {
-    this.modalService.open(this.modal, { centered: true }).result.then(
-      (result) => {
+
+    this.modalReference = this.modalService.open(this.modal, { centered: true });
+    this.modalReference.result.then(
+      (result: any) => {
         this.closeResult = `Closed with: ${result}`;
       },
-      (reason) => {
+      (reason: any) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       }
     );
@@ -58,4 +69,38 @@ export class ModalComponent implements OnInit, AfterViewInit {
       return `with: ${reason}`;
     }
   }
+
+  checkValue() {
+    const value = document.querySelectorAll('input[name="form-product"]');
+    value.forEach((item: any, index: number) => {
+      console.log(index);
+      console.log(item)
+      if (item.checked) {
+        this.radioChecked = false
+        if (item.value == this.service.statusCheck.statusColumns1) {
+          this.service.statusCheck.statusColumns1 = this.currentProduct.id
+          console.log("🚀 ~ file: modal.component.ts ~ line 81 ~ ModalComponent ~ value.forEach ~ this.service.statusCheck.statusColumns1", this.service.statusCheck.statusColumns1)
+        }
+        if (item.value == this.service.statusCheck.statusColumns2) {
+          this.service.statusCheck.statusColumns2 = this.currentProduct.id
+          console.log("🚀 ~ file: modal.component.ts ~ line 85 ~ ModalComponent ~ value.forEach ~ this.service.statusCheck.statusColumns2", this.service.statusCheck.statusColumns2)
+        }
+      }
+    })
+    this.reloadCurrentRoute()
+    this.modalReference.close()
+
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+    
+  }
+
 }
+
+
+
