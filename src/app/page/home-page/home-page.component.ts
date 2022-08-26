@@ -40,7 +40,11 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.searchFilter();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if( this.service.statusCheck.statusColumns1 != undefined || this.service.statusCheck.statusColumns1 != undefined ){
+      this.selectedProducts = this.filteredProduct.filter(p => p.id == this.service.statusCheck.statusColumns1 || p.id == this.service.statusCheck.statusColumns2)
+    }
+   }
   ngAfterViewInit(): void { }
   // search Text
   private _searchText: string = '';
@@ -81,7 +85,8 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this._listOfAgeSelected = this._listOfAge.filter(
       (x) => x.isSelected == true
     );
-    // console.log(this._listOfAgeSelected);
+
+
 
     if (this._searchText != null && this._searchText != '') {
       this.filteredProduct = this.filteredProduct.filter((p) =>
@@ -161,8 +166,9 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   }) {
 
 
-    
+
     if (eventData.selected) {
+  
       this.selectedProducts.push(eventData.product);
     } else {
       this.selectedProducts = this.selectedProducts.filter(
